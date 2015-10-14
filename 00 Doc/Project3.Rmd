@@ -1,0 +1,45 @@
+---
+title: "Project 3"
+output: html_document
+---
+
+
+#### This html page, produced by creating an R markdown document, and using KnitR to knit the file into html. The purpose of this html file, is to show our analysis of the Titanic data in the oracle database, as well as show the steps required to reproduce our findings, given the same data. The data for titanic included, the number of passengers, names, how many survived, sex, age, and how much they had paid for their fare. Given these variables, we were able to query the data base in a few different ways, to gather results, and visualize them using ggplot. 
+
+
+
+##### Rprofile.R:
+An Rprofile.R document was created to include all of the packages required for the project, in order to avoid requiring packages in each of the R script files. Below is the call to the Rprofile document, and shows the necessary packages being loaded:
+
+
+```{r}
+source("../Rprofile.R", echo = FALSE)
+```
+
+#### Data:
+Below is are the summary statistics for the data on LPG(liquified petroleum gas) consumption for countries by household, as well as "head", which displays the first 6 items in the data set.
+
+```{r}
+source("../01 Data/Project2.R", echo = TRUE)
+```
+
+#### Data Wrangling set 1:
+Below is our first visualization of a subset of the data. The point graph shows a representation of the consumption of LPG between the United States, and the 5 countries sanctioned by the United States over the years 1990-2012. The graph clearly shows the enormous consumption gap between the United States and these countries that have U.S. sanctions.
+
+```{r}
+source("../02 Data Wrangling/DW2.R", echo = TRUE)
+```
+
+#### Data Wrangling set 2:
+Below a visualization of a subset of the data. For this visualization, we wanted to observe a global trend for consumption of LPG over the time period 1990-2012. The data clearly shows the same gap, between a few countries that consume vastly more LPG then the remaining majority of countries. This helps visualize the global wealth gap between developed countries, and a majority of underdeveloped or developing countries.
+
+```{r}
+source("../02 Data Wrangling/DW3.R", echo = TRUE)
+```
+
+#### Data Wrangling set 3:
+Below is a visualization of a subset of the data. We thought it would be insightful to see how the global financial crisis in 2008 affected some of the world's largest countries. To our complete surprise, the data visualization showed little to no change in the years following the financial crisis for all countries grouped in the subset used. 
+
+```{r}
+source("../02 Data Wrangling/DW4.R", echo = TRUE)
+```
