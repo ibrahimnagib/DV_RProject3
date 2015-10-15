@@ -28,6 +28,7 @@ ggplot() +
         stat="identity",
         stat_params=list(), 
         geom="point",
+        geom_smooth(method='lm', color="black"),
         geom_params=list(), 
         position=position_jitter(width=0.0, height=0)
   )
