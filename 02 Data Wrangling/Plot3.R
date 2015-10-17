@@ -3,27 +3,19 @@ require(dplyr)
 require(ggplot2)
 require(plyr)
 
-# Move data into new data frame for Plot 1
+Table3_df <- dplyr::full_join(YL, PG, by= c("TIME_PERIOD", "REFERENCE_AREA")) 
 
-Plot1_df <- dplyr::inner_join(YL, PG, by= c("TIME_PERIOD", "REFERENCE_AREA")) 
-
-# # Need to relabel the data in the Education column
-# Plot1_df$RESTAURANT <- factor(Plot1_df$RESTAURANT, levels=c("m", "b", "p", "t","w", "j", "h", "c", "i", "k"), labels = c("McDonald's", "Burger King", "Pizza Hut", "Taco Bell", "Wendy's", "Jack In The Box", "Hardee's", "Carl's Jr.", "In-N-Out", "KFC")) 
-
-Plot1_df <- Plot1_df %>% filter(TIME_PERIOD  <= 1995, SEX.x == "All genders" )
-# 
-# test_df <- ddply(Plot1_df,~ZIP, summarise,Total_Restaurants=length(RESTAURANT))
-# Plot1_df <- dplyr::left_join(Plot1_df,test_df, by="ZIP")
-# Plot1_df <- Plot1_df %>% select(ZIP, MEDIAN, Total_Restaurants)
+Plot3_df <- Table3_df %>% filter(TIME_PERIOD  >= 2000 & TIME_PERIOD <= 2012, SEX.x == "All genders" )
 
 ggplot() +
   coord_cartesian() + 
   scale_x_continuous() +
   scale_y_continuous() +
-  #facet_wrap(~RESTAURANT) +
-  labs(title="PLOT 1") +
-  labs(x="X", y="Y", color="REFERENCE_AREA") +
-  layer(data=Plot1_df , 
+  facet_wrap(~TIME_PERIOD) +
+  labs(title="Literacy Rate Growth Over Time vs Education Spending") +
+  labs(x="Percent of GDP Spent on Education", y="Youth Literacy rate", color="Country") +
+  theme_stata()+
+  layer(data=Plot3_df , 
         mapping=aes(x=as.numeric(OBSERVATION_VALUE.y), y=as.numeric(OBSERVATION_VALUE.x), color = as.character(REFERENCE_AREA)), 
         stat="identity",
         stat_params=list(), 

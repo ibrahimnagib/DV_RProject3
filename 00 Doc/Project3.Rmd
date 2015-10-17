@@ -23,23 +23,30 @@ Below is are the summary statistics for the data sets on Youth Literacy rate, an
 source("../01 Data/Project3.R", echo = TRUE)
 ```
 
-#### Data Wrangling set 1:
-Below is our first visualization of a subset of the data. The point graph shows a representation of the consumption of LPG between the United States, and the 5 countries sanctioned by the United States over the years 1990-2012. The graph clearly shows the enormous consumption gap between the United States and these countries that have U.S. sanctions.
+#### Data Wrangling set 1 (Using inner-join):
+Below is our first visualization of a subset of the data. The graph shows the Youth Literacy rates on the Y axis and the percentage of GDP spending on education on the X axis. We started with this graph to get an idea of the overall correlation for all of the countries, for all of the years. Most of the data we have is pre-2010, so that was chosen as the base year. The data shows a relatively low majorityof countries close to 100% literacy. It is hard to tell the effect of national spending on education for a possible number of reasons, so we will use the next few data visualizations to try analyze the trend.
 
 ```{r}
 source("../02 Data Wrangling/Plot1.R", echo = TRUE)
 ```
 
-#### Data Wrangling set 2:
-Below a visualization of a subset of the data. For this visualization, we wanted to observe a global trend for consumption of LPG over the time period 1990-2012. The data clearly shows the same gap, between a few countries that consume vastly more LPG then the remaining majority of countries. This helps visualize the global wealth gap between developed countries, and a majority of underdeveloped or developing countries.
+#### Data Wrangling set 2 (Using outer-join):
+Below a visualization of a subset of the data. For this visualization, we wanted to observe the correlaton between government education spending and youth literacy rates in some developing African countries. Although there exists a few outliers in our data visualizations, it seems to be the trend for developing nations, that an increase in government spending on education is correlated with higher youth literacy rates. Our data visualization also shows the females in those developing countries often lagged behind in the literacy rates.
 
 ```{r}
 source("../02 Data Wrangling/Plot2.R", echo = TRUE)
 ```
 
-#### Data Wrangling set 3:
-Below is a visualization of a subset of the data. We thought it would be insightful to see how the global financial crisis in 2008 affected some of the world's largest countries. To our complete surprise, the data visualization showed little to no change in the years following the financial crisis for all countries grouped in the subset used. 
+#### Data Wrangling set 3 (Using full-join):
+Below is a visualization of a subset of the data. We thought it would be insightful to see how the variables changed over the time period between 2000 and 2012. As The faceted graph shows, there is a trickling of data points, representing countries, from the lower end of the graph to the upper end of the graph showing that literacy rates were improving through the years. It was surprising however to see that percentage of GDP spent on education seemed to play little role in the improvement of youth literacy rates over the years.
 
 ```{r}
 source("../02 Data Wrangling/Plot3.R", echo = TRUE)
+```
+
+#### Data Wrangling set 4 :
+An interesting variable we wanted to observe a little more closely was the gender variable. We assumed, specially in the developing countries, females would take a longer time to move up the literacy rates. The bar graph only represents countries with les then 50% youth literacy. As we can see from the data visualization, over time, there is much fewer male literacy rates below 50, while female literacy rates remain more prevalently under 50%.
+
+```{r}
+source("../02 Data Wrangling/Plot4.R", echo = TRUE)
 ```
