@@ -3,7 +3,7 @@ require(dplyr)
 require(ggplot2)
 require(plyr)
 
-Table2_df <- plyr::outer_join(YL, PG, by= c("TIME_PERIOD", "REFERENCE_AREA")) 
+Table2_df <- dplyr::left_join(YL, PG, by= c("TIME_PERIOD", "REFERENCE_AREA")) 
 
 Plot2_df <- Table2_df %>% filter(SEX.x != "All genders",REFERENCE_AREA %in% c("Burkina Faso", "Mali", "Guinea", "Bangladesh", "Egypt", "Senegal", "Central African Republic", "Rwanda", "Burundi", "Cameroon", "Morocco", "Togo"))
 #filter(REFERENCE_AREA == "Chad", "Niger", SEX.x == "All genders" )
